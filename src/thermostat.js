@@ -47,6 +47,20 @@ Thermostat.prototype.reset = function() {
   this.currentTemp = this.defaultTemp;
 };
 
+//Toggle powersave mode
+Thermostat.prototype.togglePowerSaving = function() {
+  if (this.powerSaving == true) {
+    this.powerSaving = false;
+    return "powersaving off";
+  } else if (this.powerSaving == false ) {
+    this.powerSaving = true;
+    if (this.currentTemp > this.powerSaveMax) {
+      this.currentTemp = this.powerSaveMax;
+    };
+    return "powersaving on";
+  };
+};
+
 // Return energy usage:
 Thermostat.prototype.returnUsage = function() {
 

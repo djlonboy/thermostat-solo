@@ -76,6 +76,28 @@ describe("thermostat", function() {
     });
   });
 
+  describe("powersaving function", function() {
+
+    it("should toggle powersaving mode", function() {
+      expect(thermostat.powerSaving).toBeTrue();
+      thermostat.togglePowerSaving();
+      expect(thermostat.powerSaving).toBeFalse();
+      thermostat.togglePowerSaving();
+      expect(thermostat.powerSaving).toBeTrue();
+    });
+
+    it("should reduce temp to power saving max if it is currently above it", function() {
+      thermostat.powerSaving = false;
+      thermostat.currentTemp = 32;
+      thermostat.togglePowerSaving();
+      expect(thermostat.currentTemp).toEqual(25)
+      thermostat.powerSaving = false;
+      thermostat.currentTemp = 26;
+      thermostat.togglePowerSaving();
+      expect(thermostat.currentTemp).toEqual(25)
+    });
+  });
+
   describe("energy usage", function() {
 
     it("should return 'low usage' if temp is < 18", function () {
