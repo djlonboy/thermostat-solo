@@ -1,0 +1,85 @@
+body {
+  background-image: linear-gradient(to bottom right, #ede8e8, #bdb9b3);
+  background-repeat: no-repeat;
+  height: 1000px
+}
+
+#topspace {
+  height: 50px;
+}
+
+#panel {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 25px;
+  text-align: center;
+  color: #b3e6ff;
+  /* background-color: #ebeadf; */
+  background-image: linear-gradient(to bottom right, #ebeadf, #cccbc0);
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 230px;
+  border: 0px;
+  padding: 40px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #9e9e9e;
+}
+
+#display {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 25px;
+  text-align: center;
+  color: #b3e6ff;
+  text-shadow: 0 0 3px #c7edff;
+  background-color: #0a0a0a;
+  width: 300px;
+  border: 15px solid grey;
+  padding: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#display-smalltext {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+  text-align: center;
+  color: #b3e6ff;
+  text-shadow: 0 0 3px #c7edff;
+  margin-top: 10px;
+}
+
+#temp-buttonholder {
+  display: inline;
+  width: 150px;
+  height: 200px;
+  padding: 10px;
+}
+
+#temp-buttons {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #dedede;
+  background-color: #474747;
+  width: 90px;
+  height: 50px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #9e9e9e;
+}
+
+#funct-buttons {
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 2px;
+  color: #dedede;
+  background-color: #474747;
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #9e9e9e;
+}
