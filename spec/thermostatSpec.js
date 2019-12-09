@@ -11,7 +11,7 @@ describe("thermostat", function() {
     });
 
     it("should have powersave enabled by default", function() {
-      expect(thermostat.powerSaving).toBeTrue();
+      expect(thermostat.powerSaving).toEqual("ON ");
     });
   });
 
@@ -24,21 +24,21 @@ describe("thermostat", function() {
 
     it("if temp is 25 and powersave is on, temp should remain 25", function() {
       thermostat.currentTemp = 25;
-      thermostat.powerSaving = true;
+      thermostat.powerSaving = "ON ";
       thermostat.up();
       expect(thermostat.currentTemp).toEqual(25);
     });
 
     it("if temp is 32 and powersave is off, temp should remain 32", function() {
       thermostat.currentTemp = 32;
-      thermostat.powerSaving = false;
+      thermostat.powerSaving = "OFF";
       thermostat.up();
       expect(thermostat.currentTemp).toEqual(32);
     });
 
     it("if temp is > 25 and powerSave is on, temp should return to 25", function() {
       thermostat.currentTemp = 32;
-      thermostat.powerSaving = true;
+      thermostat.powerSaving = "ON ";
       thermostat.up();
       expect(thermostat.currentTemp).toEqual(25);
     });
@@ -79,19 +79,19 @@ describe("thermostat", function() {
   describe("powersaving function", function() {
 
     it("should toggle powersaving mode", function() {
-      expect(thermostat.powerSaving).toBeTrue();
+      expect(thermostat.powerSaving).toEqual("ON ");
       thermostat.togglePowerSaving();
-      expect(thermostat.powerSaving).toBeFalse();
+      expect(thermostat.powerSaving).toEqual("OFF");
       thermostat.togglePowerSaving();
-      expect(thermostat.powerSaving).toBeTrue();
+      expect(thermostat.powerSaving).toEqual("ON ");
     });
 
     it("should reduce temp to power saving max if it is currently above it", function() {
-      thermostat.powerSaving = false;
+      thermostat.powerSaving = "OFF";
       thermostat.currentTemp = 32;
       thermostat.togglePowerSaving();
       expect(thermostat.currentTemp).toEqual(25)
-      thermostat.powerSaving = false;
+      thermostat.powerSaving = "OFF";
       thermostat.currentTemp = 26;
       thermostat.togglePowerSaving();
       expect(thermostat.currentTemp).toEqual(25)
@@ -102,21 +102,21 @@ describe("thermostat", function() {
 
     it("should return 'low usage' if temp is < 18", function () {
       thermostat.currentTemp = 15
-      expect(thermostat.returnUsage()).toEqual("low usage")
+      expect(thermostat.returnUsage()).toEqual("LOW")
     });
 
     it("should return 'medium usage' if temp is < 25 and >= 18", function () {
       thermostat.currentTemp = 23
-      expect(thermostat.returnUsage()).toEqual("medium usage")
+      expect(thermostat.returnUsage()).toEqual("MEDIUM")
       thermostat.currentTemp = 18
-      expect(thermostat.returnUsage()).toEqual("medium usage")
+      expect(thermostat.returnUsage()).toEqual("MEDIUM")
     });
 
     it("should return 'medium usage' if temp is >= 25", function () {
       thermostat.currentTemp = 29
-      expect(thermostat.returnUsage()).toEqual("high usage")
+      expect(thermostat.returnUsage()).toEqual("HIGH")
       thermostat.currentTemp = 25
-      expect(thermostat.returnUsage()).toEqual("high usage")
+      expect(thermostat.returnUsage()).toEqual("HIGH")
     });
   });
 });

@@ -6,24 +6,27 @@
   <title>Thermostat</title>
   <meta name="description" content="Thermostat">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="../src/thermostat.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="interface.js"></script>
 </head>
 <body>
 
   <div id="topspace"></div>
   <div id="panel">
     <div id="display">
-      CURRENT TEMP: 20°C
+      CURRENT TEMP: <div id="temp-display" style="display: inline">--</div>°C
       <div id="display-smalltext">
-        PowerSave: ON&nbsp;
-        Power Use: MEDIUM
+        PowerSave: <div id="ps-display" style="display: inline">---</div>&nbsp;
+        Power Use: <div id="pu-display" style="display: inline">---</div>
       </div>
     </div>
     <div style="height:15px"></div>
     <div id="temp-buttonholder">
-      <button type="button" id="temp-buttons" onclick="alert('Hello world!')">UP</button>
-      <button type="button" id="temp-buttons" onclick="alert('Hello world!')">DOWN</button>
-      <button type="button" id="funct-buttons" onclick="alert('Hello world!')">RESET</button>
-      <button type="button" id="funct-buttons" onclick="alert('Hello world!')">
+      <button type="button" class="temp-buttons" id="UP">UP</button>
+      <button type="button" class="temp-buttons" id="DOWN">DOWN</button>
+      <button type="button" class="funct-buttons" id="RESET">RESET</button>
+      <button type="button" class="funct-buttons" id="PSAVE">
         <div style="font-size: 10px">
         P.SAVE
         </div>

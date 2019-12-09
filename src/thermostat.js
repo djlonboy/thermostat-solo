@@ -3,7 +3,7 @@
 
 function Thermostat() {
   this.defaultTemp = 20;
-  this.powerSavingDefault = true;
+  this.powerSavingDefault = "ON ";
   this.powerSaveMax = 25;
   this.noPowerSaveMax = 32;
   this.minTemp = 10;
@@ -17,14 +17,14 @@ function Thermostat() {
     // If power saving off: 25 degrees
     // If power saving on: 32 degrees
 Thermostat.prototype.up = function() {
-  if (this.powerSaving == true) {
+  if (this.powerSaving == "ON ") {
     if (this.currentTemp >= this.powerSaveMax) {
       this.currentTemp = this.powerSaveMax;
     } else {
       this.currentTemp += 1;
     }
   } else {
-    if (this.currentTemp >= this.powerSaveMax) {
+    if (this.currentTemp >= this.noPowerSaveMax) {
       this.currentTemp = this.noPowerSaveMax;
     } else {
       this.currentTemp += 1;
@@ -49,11 +49,11 @@ Thermostat.prototype.reset = function() {
 
 //Toggle powersave mode
 Thermostat.prototype.togglePowerSaving = function() {
-  if (this.powerSaving == true) {
-    this.powerSaving = false;
+  if (this.powerSaving == "ON ") {
+    this.powerSaving = "OFF";
     return "powersaving off";
-  } else if (this.powerSaving == false ) {
-    this.powerSaving = true;
+  } else if (this.powerSaving == "OFF" ) {
+    this.powerSaving = "ON ";
     if (this.currentTemp > this.powerSaveMax) {
       this.currentTemp = this.powerSaveMax;
     };
@@ -66,15 +66,15 @@ Thermostat.prototype.returnUsage = function() {
 
   // less than 18: low usage (green)
   if (this.currentTemp < 18) {
-    return "low usage";
+    return "LOW";
 
       // less than 25: medium usage (black)
   } else if (this.currentTemp < 25 && this.currentTemp >= 18) {
-    return "medium usage";
+    return "MEDIUM";
 
     // 25 or more: high usage (red)
   } else if (this.currentTemp >= 25) {
-    return "high usage";
+    return "HIGH";
   } else {
     throw "Temperature Error"
   };
