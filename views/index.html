@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Thermostat</title>
   <meta name="description" content="Thermostat">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
   <script type="text/javascript" src="../src/thermostat.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="interface.js"></script>
@@ -19,6 +19,10 @@
       <div id="display-smalltext">
         PowerSave: <div id="ps-display" style="display: inline">---</div>&nbsp;
         Power Use: <div id="pu-display" style="display: inline">---</div>
+        <div id="spacer" style="height: 10px"></div>
+        <div class="Weather">
+          Weather: <div id="weather-display" style="display: inline">---</div>
+        </div>
       </div>
     </div>
     <div style="height:15px"></div>
@@ -30,6 +34,23 @@
         <div style="font-size: 10px">
         P.SAVE
         </div>
+      </div>
+      <div id="dropdown-holder">CITY:&nbsp;
+        <select id="city-dropdown" class="city-dropdown">
+          <option value="londonuk">LONDON</option>
+          <option value="berlinge">BERLIN</option>
+          <option value="cape-townza">CAPE TOWN</option>
+          <option value="new-yorkus">NEW YORK</option>
+          <option value="beijingcn">BEIJING</option>
+          <option value="moscowru">MOSCOW</option>
+          <option value="timbuktuml">TIMBUKTU</option>
+        </select>
+      </div>
+      <div id="vent-holder">
+        <div class="vent"></div>
+        <div class="vent"></div>
+        <div class="vent"></div>
+        <div class="vent"></div>
       </div>
     </div>
 
